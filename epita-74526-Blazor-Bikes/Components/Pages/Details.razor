@@ -1,0 +1,64 @@
+﻿@page "/detaims"
+@attribute [StreamRendering]
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Newtonsoft.Json
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Contract Name</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Banking</th>
+                <th>Bonus</th>
+                <th>Bike Stands</th>
+                <th>Bike availaible</th>
+                <th>Status</th>
+                <th>Last update</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>
+                        @forecast.number
+                    </td>
+                    <td>@forecast.contract_name</td>
+                    <td>@forecast.name</td>
+                    <td>@forecast.address</td>
+                    <td>@(forecast.banking ? "✔" : "❌")</td>
+                    <td>@(forecast.bonus ? "✔" : "❌")</td>
+                    <td>@forecast.available_bike_stands</td>
+                    <td>@forecast.available_bikes</td>
+                    <td>@(forecast.bonus ? "✔" : "❌")</td>
+                    <td>@forecast.last_update</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Stations[]? forecasts;
+
+    public class DetailsModel : PageModel
+    {
+        public void OnGet(int id)
+        {
+            // Utilisez la valeur de 'id' pour récupérer les informations nécessaires
+            // depuis la source de données et effectuer les opérations nécessaires.
+        }
+    }
+}

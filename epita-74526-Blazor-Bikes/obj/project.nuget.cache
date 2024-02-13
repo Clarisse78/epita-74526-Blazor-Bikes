@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "cEIFMIHz0enJVbqxalTnqaQkrgCL+ZaKUMUnZtazVq9Z99AtMJu0NbNJ9tYLk4A2ENFWUz0relsK2cgQwApwIg==",
+  "dgSpecHash": "siroRV26T0Q+/uCnPoimpMObXPPYOh72fBNTJN1oP4XOOqjzwWYjp9hmACIV7eT9rFQO9UsBbs/E61bSUltjaw==",
   "success": true,
   "projectFilePath": "C:\\Users\\luc_p\\00-lucile\\EPITA\\Dorset\\poo\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\luc_p\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
