@@ -1,4 +1,4 @@
-﻿@page "/details"
+﻿@page "/details/{stationId}"
 @attribute [StreamRendering]
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using Newtonsoft.Json
@@ -47,15 +47,15 @@ else
 
 
 @code {
-    public string Id { get; set; }
-
+    [Parameter]
+    public string stationId { get; set; }
     public test.models.Stations stations;
 
     protected override async Task OnInitializedAsync()
     {
-        int stationId = Convert.ToInt32(Id);
+        int Id = Convert.ToInt32(stationId);
 
-        stations = GetStationDetails(stationId);
+        stations = GetStationDetails(Id);
     }
 
     private test.models.Stations GetStationDetails(int stationId)
