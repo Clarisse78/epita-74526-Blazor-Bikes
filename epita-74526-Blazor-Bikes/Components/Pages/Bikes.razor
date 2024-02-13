@@ -1,0 +1,135 @@
+﻿@page "/bikes"
+@attribute [StreamRendering]
+@using Newtonsoft.Json
+<PageTitle>Bikes</PageTitle>
+
+<h1>Bikes</h1>
+
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Contract Name</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Banking</th>
+                <th>Bonus</th>
+                <th>Bike Stands</th>
+                <th>Bike availaible</th>
+                <th>Status</th>
+                <th>Last update</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>
+                        @forecast.number
+                    </td>
+                    <td>@forecast.contract_name</td>
+                    <td>@forecast.name</td>
+                    <td>@forecast.address</td>
+                    <td>@(forecast.banking ? "✔" : "❌")</td>
+                    <td>@(forecast.bonus ? "✔" : "❌")</td>
+                    <td>@forecast.available_bike_stands</td>
+                    <td>@forecast.available_bikes</td>
+                    <td>@(forecast.status)</td>
+                    <td>@forecast.last_update</td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = forecast.number })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    public class BikeController
+    {
+        Uri baseAddress = new Uri("https://api.jcdecaux.com/vls/v1/stations?contract=dublin&apiKey=79db4de4b7c9b56bfccb3fe4bc50b15db45809ab");
+
+        private readonly HttpClient _httpClient;
+
+        public BikeController()
+        {
+            _httpClient = new HttpClient();
+            _httpClient.BaseAddress = baseAddress;
+        }
+
+        public List<Stations> Index()
+        {
+            List<Stations> userProfiles = new();
+
+            HttpResponseMessage httpResponseMessage = _httpClient.GetAsync(baseAddress).Result;
+
+            if (httpResponseMessage.IsSuccessStatusCode)
+            {
+                string data = httpResponseMessage.Content.ReadAsStringAsync().Result;
+                userProfiles = JsonConvert.DeserializeObject<List<Stations>>(data);
+            }
+
+            return userProfiles;
+        }
+    }
+   
+
+    private Stations[]? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Simulate asynchronous loading to demonstrate streaming rendering
+        await Task.Delay(500);
+        
+        var bikeController = new BikeController();
+        var userProfiles = bikeController.Index();
+
+        if (userProfiles != null)
+        {
+            forecasts = userProfiles.ToArray();
+        }
+        else
+        {
+            forecasts = Array.Empty<Stations>();
+        }
+        
+    }
+
+    public class Stations
+    {
+        public int number { get; set; }
+        public string contract_name { get; set; }
+        public string name { get; set; }
+        public string address { get; set; }
+        //public Position position { get; set; }
+        public bool banking { get; set; }
+        public bool bonus { get; set; }
+        public int bike_stands { get; set; }
+        public int available_bike_stands { get; set; }
+        public int available_bikes { get; set; }
+        public string status { get; set; }
+        public long last_update { get; set; }
+    }
+
+    public class BikeStationDTO
+    {
+        public int BikeStationId { get; set; }
+        public string contract_name { get; set; }
+        public string name { get; set; }
+        public string address { get; set; }
+
+        public int bike_stands { get; set; }
+        public int available_bike_stands { get; set; }
+        public int available_bikes { get; set; }
+
+    }
+}

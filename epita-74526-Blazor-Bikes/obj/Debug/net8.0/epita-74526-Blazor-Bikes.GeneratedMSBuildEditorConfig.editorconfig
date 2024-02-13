@@ -22,8 +22,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/luc_p/00-lucile/EPITA/Dorset/poo/epita-74526-Blazor-Bikes/epita-74526-Blazor-Bikes/Components/Pages/Bikes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xCaWtlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/luc_p/00-lucile/EPITA/Dorset/poo/epita-74526-Blazor-Bikes/epita-74526-Blazor-Bikes/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/luc_p/00-lucile/EPITA/Dorset/poo/epita-74526-Blazor-Bikes/epita-74526-Blazor-Bikes/Components/Pages/Details.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEZXRhaWxzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/luc_p/00-lucile/EPITA/Dorset/poo/epita-74526-Blazor-Bikes/epita-74526-Blazor-Bikes/Components/Pages/Error.razor]
