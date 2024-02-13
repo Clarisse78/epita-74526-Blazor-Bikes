@@ -1,4 +1,4 @@
-﻿@page "/detaims"
+﻿@page "/details"
 @attribute [StreamRendering]
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using Newtonsoft.Json
@@ -6,8 +6,7 @@
 
 <h1>Details</h1>
 
-
-@if (forecasts == null)
+@if (stations == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -29,36 +28,38 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
-            {
                 <tr>
-                    <td>
-                        @forecast.number
-                    </td>
-                    <td>@forecast.contract_name</td>
-                    <td>@forecast.name</td>
-                    <td>@forecast.address</td>
-                    <td>@(forecast.banking ? "✔" : "❌")</td>
-                    <td>@(forecast.bonus ? "✔" : "❌")</td>
-                    <td>@forecast.available_bike_stands</td>
-                    <td>@forecast.available_bikes</td>
-                    <td>@(forecast.bonus ? "✔" : "❌")</td>
-                    <td>@forecast.last_update</td>
-                </tr>
-            }
+                <td> @stations.number</td>
+                <td>@stations.contract_name</td>
+                <td>@stations.name</td>
+                <td>@stations.address</td>
+                <td>@(stations.banking ? "✔" : "❌")</td>
+                <td>@(stations.bonus ? "✔" : "❌")</td>
+                <td>@stations.available_bike_stands</td>
+                <td>@stations.available_bikes</td>
+                <td>@(stations.status)</td>
+                <td>@stations.last_update</td>
+                 </tr>
         </tbody>
     </table>
 }
 
-@code {
-    private Stations[]? forecasts;
 
-    public class DetailsModel : PageModel
+
+@code {
+    public string Id { get; set; }
+
+    public test.models.Stations stations;
+
+    protected override async Task OnInitializedAsync()
     {
-        public void OnGet(int id)
-        {
-            // Utilisez la valeur de 'id' pour récupérer les informations nécessaires
-            // depuis la source de données et effectuer les opérations nécessaires.
-        }
+        int stationId = Convert.ToInt32(Id);
+
+        stations = GetStationDetails(stationId);
+    }
+
+    private test.models.Stations GetStationDetails(int stationId)
+    {
+        return test.models.AllStations.getStations().FirstOrDefault(s => s.number == stationId);
     }
 }

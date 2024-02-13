@@ -44,8 +44,9 @@ else
                     <td>@(forecast.status)</td>
                     <td>@forecast.last_update</td>
                     <td>
-                        @Html.ActionLink("Details", "Details", new { id = forecast.number })
+                        <button @onclick="() => NavigateToDetails(forecast.number)">Details</button>
                     </td>
+
                 </tr>
             }
         </tbody>
@@ -53,7 +54,13 @@ else
 }
 
 @code {
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
 
+    private void NavigateToDetails(int stationId)
+    {
+        NavigationManager.NavigateTo($"/details/{stationId}");
+    }
     public class BikeController
     {
         Uri baseAddress = new Uri("https://api.jcdecaux.com/vls/v1/stations?contract=dublin&apiKey=79db4de4b7c9b56bfccb3fe4bc50b15db45809ab");
@@ -66,70 +73,46 @@ else
             _httpClient.BaseAddress = baseAddress;
         }
 
-        public List<Stations> Index()
+        public List<test.models.Stations> Index()
         {
-            List<Stations> userProfiles = new();
+            List<test.models.Stations> userProfiles = new();
+
 
             HttpResponseMessage httpResponseMessage = _httpClient.GetAsync(baseAddress).Result;
 
             if (httpResponseMessage.IsSuccessStatusCode)
             {
                 string data = httpResponseMessage.Content.ReadAsStringAsync().Result;
-                userProfiles = JsonConvert.DeserializeObject<List<Stations>>(data);
+                userProfiles = JsonConvert.DeserializeObject<List<test.models.Stations>>(data);
             }
 
             return userProfiles;
         }
-    }
-   
 
-    private Stations[]? forecasts;
+    }
+
+
+    private test.models.Stations[]? forecasts;
 
     protected override async Task OnInitializedAsync()
     {
         // Simulate asynchronous loading to demonstrate streaming rendering
         await Task.Delay(500);
-        
+
         var bikeController = new BikeController();
         var userProfiles = bikeController.Index();
 
         if (userProfiles != null)
         {
             forecasts = userProfiles.ToArray();
+            test.models.AllStations.setStations(forecasts);
         }
         else
         {
-            forecasts = Array.Empty<Stations>();
+            forecasts = Array.Empty<test.models.Stations>();
         }
+
+   
         
-    }
-
-    public class Stations
-    {
-        public int number { get; set; }
-        public string contract_name { get; set; }
-        public string name { get; set; }
-        public string address { get; set; }
-        //public Position position { get; set; }
-        public bool banking { get; set; }
-        public bool bonus { get; set; }
-        public int bike_stands { get; set; }
-        public int available_bike_stands { get; set; }
-        public int available_bikes { get; set; }
-        public string status { get; set; }
-        public long last_update { get; set; }
-    }
-
-    public class BikeStationDTO
-    {
-        public int BikeStationId { get; set; }
-        public string contract_name { get; set; }
-        public string name { get; set; }
-        public string address { get; set; }
-
-        public int bike_stands { get; set; }
-        public int available_bike_stands { get; set; }
-        public int available_bikes { get; set; }
-
     }
 }
