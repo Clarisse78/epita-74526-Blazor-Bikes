@@ -48,17 +48,16 @@ else
 
 @code {
     [Parameter]
-    public string stationId { get; set; }
+    public int? stationId { get; set; }
     public test.models.Stations stations;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnParametersSet()
     {
-        int Id = Convert.ToInt32(stationId);
-
-        stations = GetStationDetails(Id);
+        base.OnParametersSet();
+        stations = GetStationDetails(stationId);
     }
 
-    private test.models.Stations GetStationDetails(int stationId)
+    private test.models.Stations GetStationDetails(int? stationId)
     {
         return test.models.AllStations.getStations().FirstOrDefault(s => s.number == stationId);
     }

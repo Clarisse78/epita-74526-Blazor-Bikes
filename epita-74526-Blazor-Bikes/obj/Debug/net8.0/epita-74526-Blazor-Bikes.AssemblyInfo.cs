@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("epita-74526-Blazor-Bikes")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3488a0a9802a96edb9b889b9a28483672378934b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c0be88e5f284cb2246ee81e7caf9a6ef96782c74")]
 [assembly: System.Reflection.AssemblyProductAttribute("epita-74526-Blazor-Bikes")]
 [assembly: System.Reflection.AssemblyTitleAttribute("epita-74526-Blazor-Bikes")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
