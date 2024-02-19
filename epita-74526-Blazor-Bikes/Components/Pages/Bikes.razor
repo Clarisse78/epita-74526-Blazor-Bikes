@@ -44,7 +44,9 @@ else
                     <td>@(forecast.status)</td>
                     <td>@forecast.last_update</td>
                     <td>
-                        <button @onclick="() => NavigateToDetails(forecast.number)">Details</button>
+                        <NavLink class="nav-link" href="@($"details/{forecast.number}")">
+                             <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Details
+                         </NavLink>
                     </td>
 
                 </tr>
@@ -54,13 +56,6 @@ else
 }
 
 @code {
-    [Inject]
-    public NavigationManager NavigationManager { get; set; }
-
-    private void NavigateToDetails(int stationId)
-    {
-        NavigationManager.NavigateTo($"/details/{stationId}");
-    }
 
     public class BikeController
     {
