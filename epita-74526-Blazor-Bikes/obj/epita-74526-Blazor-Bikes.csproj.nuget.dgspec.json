@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\luc_p\\00-lucile\\EPITA\\Dorset\\poo\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes.csproj": {}
+    "C:\\Users\\luc_p\\00-lucile\\EPITA\\s4\\Dorset\\poo\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\luc_p\\00-lucile\\EPITA\\Dorset\\poo\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes.csproj": {
+    "C:\\Users\\luc_p\\00-lucile\\EPITA\\s4\\Dorset\\poo\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luc_p\\00-lucile\\EPITA\\Dorset\\poo\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes.csproj",
+        "projectUniqueName": "C:\\Users\\luc_p\\00-lucile\\EPITA\\s4\\Dorset\\poo\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes.csproj",
         "projectName": "epita-74526-Blazor-Bikes",
-        "projectPath": "C:\\Users\\luc_p\\00-lucile\\EPITA\\Dorset\\poo\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes.csproj",
+        "projectPath": "C:\\Users\\luc_p\\00-lucile\\EPITA\\s4\\Dorset\\poo\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes.csproj",
         "packagesPath": "C:\\Users\\luc_p\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luc_p\\00-lucile\\EPITA\\Dorset\\poo\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes\\obj\\",
+        "outputPath": "C:\\Users\\luc_p\\00-lucile\\EPITA\\s4\\Dorset\\poo\\epita-74526-Blazor-Bikes\\epita-74526-Blazor-Bikes\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
