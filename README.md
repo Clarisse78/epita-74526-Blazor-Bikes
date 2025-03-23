@@ -19,3 +19,8 @@
 3. Launch the projet with https configuration
 
 4. You can now access the app by following the address on the open terminal
+
+## Demo
+
+![Bikes Demo](demo/demo_bikes.png)
+![Details Bikes Demo](demo/demo_details.png)
